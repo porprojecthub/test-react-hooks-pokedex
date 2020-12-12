@@ -1,0 +1,105 @@
+.header{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    width: 100%;
+    overflow: auto;
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+    padding: 0.2px;
+    margin: 0;   
+    border:0;
+    z-index: 1;
+   }
+   
+   .footer{
+       position:absolute;
+       bottom:0;
+       left:0;
+       right:0;
+       width: 100%;
+       overflow: auto;
+       background-color: #e44c4c;
+       color: #ffffff;
+       text-align: center;
+       height: 70px;
+       padding: 0.2px;
+       margin: 0;
+       border:0;   
+       z-index: 1;
+      }
+   
+      #footer-button-panel{
+        content: "";
+         width: 100px;
+         height: 100px;
+         border-radius: 50px;
+         background: #e44c4c;
+         position: absolute;
+         left: 50%;
+         bottom: 8px;
+         border: 1px inset #ac2a2a;
+         transform:translate(-50%,0%);
+         z-index: 1;
+      }
+   
+      #add-button{
+        color: #ffffff;
+        font-size: 70px;
+        font-weight: bold;
+        position: absolute;
+        left: 50%;
+        bottom: 5px;
+        transform:translate(-55%,0%);
+        cursor: pointer;
+        z-index: 2;
+      }
+   
+     .container{
+       height: 100%;
+       width: 100%;
+       overflow: hidden;
+       overflow-y: auto;
+       box-sizing: border-box;
+       position: absolute;
+       top: 0;
+       bottom: 0;
+       margin:0;
+       padding:0;
+     }
+     .content{
+       position: relative;
+       max-height: 100%;
+       top: 90px !important;
+       background-color: #ffffff;
+     }
+   
+     .cards{
+       display: inline-block;
+       width: 420px !important;
+       background-color: rgb(245, 243, 243);
+       margin: 20px 10px 20px 50px !important;
+       padding: 5px;
+       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+     }
+   
+     .cards:hover{
+       box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2);
+     }
+   
+     .card-item{
+       display: flex;
+       width: 100%;
+       margin: 10px;
+     }
+   
+     .image{
+       flex-direction: column;
+     }
+   
+     .data{
+       display: block;
+       width: 100%;
+     }

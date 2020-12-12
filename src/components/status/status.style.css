@@ -1,0 +1,19 @@
+.status{
+    --status-param: 0%;
+}
+
+#progress{
+    background: #d1cfcf;
+    border-radius: 13px;
+    height: 20px;
+    width: 91%;
+ }
+
+ #progress:after {
+   content: '';
+   display: block;
+   background: #e44c4c;
+   width: var(--status-param);
+   height: 100%;
+   border-radius: 9px;
+}
