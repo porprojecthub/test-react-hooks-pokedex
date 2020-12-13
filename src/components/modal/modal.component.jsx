@@ -17,23 +17,23 @@ export default function Modal(props) {
          return getStatus(pokemon);
        }))
         
-       let list = response;
+       let list = response;   
 
-         if(props.selectedList.length && list.length){
-           for(let i = 0; i < list.length; i++){
-             let mId = list[i].id
-             for(let j = 0; j < props.selectedList.length; j++){
-               let sId = props.selectedList[j].id
-               if(mId.trim().toUpperCase() === sId.trim().toUpperCase()){
-                 list.splice(i, 1);
-                 i = i-1
-                 continue;
-               }
+       if(props.selectedList.length && list.length){
+         for(let i = 0; i < list.length; i++){
+           let mId = list[i].id;
+           for(let j = 0; j < props.selectedList.length; j++){
+             let sId = props.selectedList[j].id;
+             if(mId.trim().toUpperCase() === sId.trim().toUpperCase()){
+               list.splice(i, 1);
+               i = i-1;
+               continue;
              }
            }
-         } 
-
-         setDataList(list);
+         }
+       }
+       
+     setDataList(list);
          
      }
 
@@ -50,8 +50,8 @@ export default function Modal(props) {
             clearData();
           }
 
-     },[props.modalStatus, props.selectedList]);
-     
+     // eslint-disable-next-line react-hooks/exhaustive-deps
+     },[props.modalStatus]);
 
      function handleCriteriaChange(e){
        let obj = {...criteria,[e.target.name]: e.target.value}
@@ -103,9 +103,30 @@ export default function Modal(props) {
      function selectPokemon(pokemon){
        if(pokemon){
          props.onAddPokemon(pokemon);
-         setCriteria({name:'',type:'',limit:'20'});
        }
      }
+
+     useEffect(()=>{
+      let list = [...dataList];   
+
+      if(props.selectedList.length){
+        for(let i = 0; i < list.length; i++){
+          let mId = list[i].id;
+          for(let j = 0; j < props.selectedList.length; j++){
+            let sId = props.selectedList[j].id;
+            if(mId.trim().toUpperCase() === sId.trim().toUpperCase()){
+              list.splice(i, 1);
+              i = i-1;
+              continue;
+            }
+          }
+        }
+      }
+      
+    setDataList(list);
+
+     // eslint-disable-next-line react-hooks/exhaustive-deps
+     },[props.selectedList]);
 
      function getStatus(pokemon){
  
