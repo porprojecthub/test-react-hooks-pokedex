@@ -66,11 +66,23 @@ export default function Modal(props) {
 
      async function searchPokemon() {
 
-       let limit = criteria.limit || '';
        let name = criteria.name || '';
        let type = criteria.type || '';
+       let limit = criteria.limit || '';
+
+       let params = new URLSearchParams();
+       
+        
+        if(name) params.append("name", name);
+        if(type) params.append("type", type);
+        if(limit) params.append("limit", limit);
+
+        let queryParams = {
+          params: params
+        };
+       
  
-        let response = await axios.get(`http://localhost:3030/api/cards?limit=${limit}&name=${name}&type=${type}`).then(resp => resp.data.cards.map(pokemon => {
+        let response = await axios.get(`http://localhost:3030/api/cards`,queryParams).then(resp => resp.data.cards.map(pokemon => {
            return getStatus(pokemon);
          }));
 
