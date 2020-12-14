@@ -199,10 +199,8 @@ export default function Modal(props) {
     return (
         <div id="myModal" className="modal" ref={myModal}  onClick={closeModal}>
   <div className="modal-content">
-    <div className="container">
-  <div className="content-modal">
-    <div className="form-input">
-      <div className="input-container" style={{paddingLeft:'30px'}}>
+  <div className="form-input">
+      <div className="input-container">
       <input className="input-field" style={{fontSize:'20px'}} type="text" placeholder="Pokemon Name" name="name" value={criteria.name} onChange={handleCriteriaChange}/>
         <input className="input-field" style={{fontSize:'20px'}} type="text" placeholder="Pokemon Type" name="type" value={criteria.type} onChange={handleCriteriaChange}/>
         <select className="input-field" style={{fontSize:'20px'}} name="limit" value={criteria.limit}  onChange={handleCriteriaChange}>
@@ -213,6 +211,8 @@ export default function Modal(props) {
       <i className="fa fa-search icon" style={{color:'#e44c4c',fontSize:'40px',cursor:'pointer'}} onClick={searchPokemon}/> 
       </div>
     </div>
+    <div className="container">
+  <div className="content-modal">
     {dataList.map((pokemon,index) => (
     <div className="cards-modal" key={pokemon.id}
     onMouseOver={()=> {handleMouse(index,true)}}
